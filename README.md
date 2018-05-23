@@ -1,4 +1,4 @@
-# Courgette-JVM & Selenium Example
+# Courgette-JVM with Selenium Example
 
 An example project showing how to use Courgette-JVM with Selenium tests.
 
