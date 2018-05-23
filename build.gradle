@@ -1,0 +1,61 @@
+apply plugin: 'java'
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.11.0'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.11.0'
+
+    testCompile 'io.github.prashant-ramcharan:courgette-jvm:2.3.2'
+    testCompile 'io.github.prashant-ramcharan:webdriver-binary-downloader:1.2.2'
+}
+
+tasks.withType(Test) {
+    systemProperties = System.getProperties()
+}
+
+
+/* JUnit Specific Tasks
+----------------------------------------------------
+*/
+task runChromeTestsUsingJUnit(type: Test) {
+    systemProperty("browser", "chrome")
+
+    include '**/suites/junit/ChromeTestSuite.class'
+    outputs.upToDateWhen { false }
+}
+
+task runFirefoxTestsUsingJUnit(type: Test) {
+    systemProperty("browser", "firefox")
+
+    include '**/suites/junit/FirefoxTestSuite.class'
+    outputs.upToDateWhen { false }
+}
+
+/* TestNG Specific Tasks
+----------------------------------------------------
+*/
+task runChromeTestsUsingTestNG(type: Test) {
+    useTestNG()
+
+    systemProperty("browser", "chrome")
+
+    include '**/suites/testng/ChromeTestSuite.class'
+    outputs.upToDateWhen { false }
+}
+
+task runFirefoxTestsUsingTestNG(type: Test) {
+    useTestNG()
+
+    systemProperty("browser", "firefox")
+
+    include '**/suites/testng/FirefoxTestSuite.class'
+    outputs.upToDateWhen { false }
+}
