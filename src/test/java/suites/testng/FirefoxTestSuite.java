@@ -2,8 +2,8 @@ package suites.testng;
 
 import courgette.api.CourgetteOptions;
 import courgette.api.CourgetteRunLevel;
+import courgette.api.CucumberOptions;
 import courgette.api.testng.TestNGCourgette;
-import cucumber.api.CucumberOptions;
 import org.testng.annotations.Test;
 
 @Test
@@ -19,8 +19,7 @@ import org.testng.annotations.Test;
                 tags = {"@regression"},
                 plugin = {"pretty",
                         "json:build/firefox/cucumber-report/cucumber.json",
-                        "html:build/firefox/cucumber-report/cucumber.html"},
-                strict = true
+                        "html:build/firefox/cucumber-report/cucumber.html"}
         ))
 public class FirefoxTestSuite extends TestNGCourgette {
 }

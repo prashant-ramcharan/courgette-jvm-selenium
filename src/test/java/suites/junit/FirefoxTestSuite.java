@@ -2,8 +2,8 @@ package suites.junit;
 
 import courgette.api.CourgetteOptions;
 import courgette.api.CourgetteRunLevel;
+import courgette.api.CucumberOptions;
 import courgette.api.junit.Courgette;
-import cucumber.api.CucumberOptions;
 import org.junit.runner.RunWith;
 
 @RunWith(Courgette.class)
@@ -20,8 +20,7 @@ import org.junit.runner.RunWith;
                 plugin = {
                         "pretty",
                         "json:build/firefox/cucumber-report/cucumber.json",
-                        "html:build/firefox/cucumber-report/cucumber.html"},
-                strict = true
+                        "html:build/firefox/cucumber-report/cucumber.html"}
         ))
 public class FirefoxTestSuite {
 }
