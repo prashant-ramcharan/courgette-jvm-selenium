@@ -13,10 +13,12 @@ import org.testng.annotations.Test;
         rerunFailedScenarios = true,
         showTestOutput = true,
         reportTargetDir = "build/chrome",
+        environmentInfo = "browser=chrome; project_info=Courgette-JVM is awesome!",
         cucumberOptions = @CucumberOptions(
                 features = "src/test/resources/features",
                 glue = "steps",
                 tags = {"@regression"},
+                publish = true,
                 plugin = {"pretty",
                         "json:build/chrome/cucumber-report/cucumber.json",
                         "html:build/chrome/cucumber-report/cucumber.html"}

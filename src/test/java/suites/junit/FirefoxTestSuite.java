@@ -13,10 +13,12 @@ import org.junit.runner.RunWith;
         rerunFailedScenarios = true,
         showTestOutput = true,
         reportTargetDir = "build/firefox",
+        environmentInfo = "browser=firefox; project_info=Courgette-JVM is awesome!",
         cucumberOptions = @CucumberOptions(
                 features = "src/test/resources/features",
                 glue = "steps",
                 tags = {"@regression"},
+                publish = true,
                 plugin = {
                         "pretty",
                         "json:build/firefox/cucumber-report/cucumber.json",
