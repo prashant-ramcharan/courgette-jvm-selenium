@@ -5,8 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.pramcharan.wd.binary.downloader.WebDriverBinaryDownloader;
-import io.github.pramcharan.wd.binary.downloader.enums.BrowserType;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,12 +21,12 @@ public class TestSteps {
 
         switch (browser.toLowerCase().trim()) {
             case "chrome":
-                WebDriverBinaryDownloader.create().downloadLatestBinaryAndConfigure(BrowserType.CHROME);
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
                 break;
 
             case "firefox":
-                WebDriverBinaryDownloader.create().downloadLatestBinaryAndConfigure(BrowserType.FIREFOX);
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
         }
